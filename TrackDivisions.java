@@ -9,15 +9,12 @@
 
 //Import the class needed to acquire input
 import java.util.Scanner;
-
-
  
 public class TrackDivisions
 {
 
 	public static void main(String[] args)
-	{
-		
+	{		
 
 		final int SHSAA_MONTH = 8;
 		
@@ -32,8 +29,8 @@ public class TrackDivisions
 				
 		System.out.println("\n\n\t***THE TRACK DIVISIONS PROGRAM ***");
 		
-		System.out.print("\n\tPlease enter the current SHSAA Year: ");
-		SHSAAYear = input.nextInt();
+		/*System.out.print("\n\tPlease enter the current SHSAA Year: ");
+		SHSAAYear = input.nextInt();*/
 		
 		do {
 		
@@ -45,7 +42,7 @@ public class TrackDivisions
 		
 			cutOffAge = SHSAAYear - birthYear;
 		
-			if (cutOffAge > 18) {
+			if (cutOffAge > 17) {
 				System.out.println("\n\tYou are too old to compete!");
 				
 			} else if (cutOffAge < 11) {
@@ -53,7 +50,7 @@ public class TrackDivisions
 				
 			}
 		
-		} while (cutOffAge < 11 || cutOffAge > 18);
+		} while (cutOffAge < 11 || cutOffAge > 17);
 		
 		System.out.println("\n\tIn the " + SHSAAYear + "/" + (SHSAAYear + 1) + " school year, the student athlete turned " + cutOffAge + " years old.");
 				
@@ -65,9 +62,7 @@ public class TrackDivisions
 										
 			} while (age != cutOffAge);
 			
-		}
-		
-		if (birthMonth > 8) {
+		} else {
 			do {
 			
 				age++;
@@ -85,7 +80,8 @@ public class TrackDivisions
 			case 14: System.out.println("\n\tYour division is Midget."); break;
 			case 15: System.out.println("\n\tYour division is Junior."); break;
 			case 16: System.out.println("\n\tYour division is Senior."); break;
-		
+			case 17: System.out.println("\n\tYour division is Senior."); break;
+			
 		}	
 
 		System.out.println("\n");
