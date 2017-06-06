@@ -9,6 +9,65 @@
 		
 	</style>
 	
+	<script language="javascript">
+		
+		function determineDivision()
+		{
+			
+			const SHSAAYear = 2016;
+			var age = 11;
+			var division = 0;
+			var cutOffAge;
+			var bMonth = document.getElementById("birthMonth");
+			var birthMonth = bMonth.options[bMonth.selectedIndex].value;
+			var bYear = document.getElementById("birthYear");
+			var birthYear = bYear.options[bYear.selectedIndex].value;
+			
+			cutOffAge = SHSAAYear - birthYear;
+			
+			if (birthMonth <= 8) {
+		
+				do {
+
+					age++;
+					division = age;
+										
+				} while (age != cutOffAge);
+			
+			} else {
+		
+				do {
+			
+					age++;
+					division = age - 1;
+										
+				} while (age != cutOffAge);
+			
+			}		
+			
+			switch (division) {
+		
+				case 11: document.getElementById("result").innerHTML = "Wee Pee"; break;
+				case 12: document.getElementById("result").innerHTML = "Pee Wee"; break;
+				case 13: document.getElementById("result").innerHTML = "Bantam"; break;
+				case 14: document.getElementById("result").innerHTML = "Midget"; break;
+				case 15: document.getElementById("result").innerHTML = "Junior"; break;
+				case 16: document.getElementById("result").innerHTML = "Senior"; break;
+				case 17: document.getElementById("result").innerHTML = "Senior"; break;
+			
+			}
+			
+		}	
+		
+		function clearOutput()
+		{
+		
+			document.getElementById("result").innerHTML = "";
+		
+		}
+		
+	</script>
+	
 </head>
 
 <body>
@@ -19,7 +78,7 @@
 
 	<form>
 	
-		<table width ="60%" border="1">
+		<table width ="60%" border="0">
 		
 			<tr>
 			
@@ -29,7 +88,7 @@
 				
 				<td>
 				
-					<select name="birthYear">
+					<select id="birthYear" onClick="clearOutput()">
 					
 						<option value="1999" selected>1999</option>
 						<option value="2000">2000</option>
@@ -38,7 +97,6 @@
 						<option value="2003">2003</option>
 						<option value="2004">2004</option>
 						<option value="2005">2005</option>
-						<option value="2006">2006</option>
 						
 					</select>
 					
@@ -54,7 +112,7 @@
 				
 				<td>
 					
-					<select name="birthMonth">
+					<select id="birthMonth" onClick="clearOutput()">
 					
 						<option value="1">January</option>
 						<option value="2">February</option>
@@ -71,6 +129,23 @@
 					
 					</select>
 					
+				</td>
+				
+			</tr>
+			
+			<tr>
+			
+				<td colspan="2" align="center">
+					
+					<input id="determine" type="button" value="Determine Track Division" onClick="determineDivision();"/>
+					
+				</td>
+				
+			</tr>
+			
+			<tr>
+			
+				<td colspan="2" align="center" id="result">
 				</td>
 				
 			</tr>
