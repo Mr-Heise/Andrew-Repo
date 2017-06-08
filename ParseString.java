@@ -41,7 +41,7 @@ public class ParseString
 		
 		// Determine the birth year of the student.
 		comma = lineOfText.indexOf(",");		
-		birthYear= Integer.parseInt(lineOfText.substring(0,comma));		
+		birthYear= Integer.parseInt(lineOfText.substring(0,comma));	
 		lineOfText = lineOfText.substring(comma + 1);		
 		
 		// Determine the birth month of the student.
