@@ -21,7 +21,7 @@ public class TrackDivisions
 		int SHSAAYear = 2016;
 		int birthYear;
 		int birthMonth;
-		int age = 11;
+		int age = 10;
 		int division = 0;
 		int cutOffAge;
 				
@@ -74,6 +74,7 @@ public class TrackDivisions
 			
 		switch (division) {
 		
+			case 10: System.out.println("\n\tYour division is Wee Pee."); break;
 			case 11: System.out.println("\n\tYour division is Wee Pee."); break;
 			case 12: System.out.println("\n\tYour division is Pee Wee."); break;
 			case 13: System.out.println("\n\tYour division is Bantam."); break;

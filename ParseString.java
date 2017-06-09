@@ -16,7 +16,7 @@ public class ParseString
 
 	public static void main(String[] args)
 	{
-		// Instantiate three variables of the string type to store the line of text, the last name, and the first name.
+		// Instantiate two variables of the string type to store the last and first name.
 		String lineOfText = "Metz,Andrew,1999,7,July";		
 		String lastName;
 		String firstName;
@@ -25,9 +25,6 @@ public class ParseString
 		int birthYear;
 		int birthMonth;
 		int comma;
-		
-		// Output a header onto the shell.
-		System.out.println("\n\n\t*** THE PARSE STRING SIMULATION PROGRAM ***");
 		
 		// Determine the last name of the student.
 		comma = lineOfText.indexOf(",");		
@@ -48,7 +45,7 @@ public class ParseString
 		comma = lineOfText.indexOf(",");		
 		birthMonth = Integer.parseInt(lineOfText.substring(0,comma));		
 		
-		// Output the first name, last name, birth year, and birth month of the student	
+		// Output the first name, last name, birth year, and birth month of the student.
 		System.out.println("\n\tFirst name: " + firstName);
 		System.out.println("\n\tLast name: " + lastName);
 		System.out.println("\n\tBirth Year: " + birthYear);
