@@ -15,9 +15,7 @@ public class TrackDivisions
 
 	public static void main(String[] args)
 	{		
-
-		final int SHSAA_MONTH = 8;
-		
+			
 		int SHSAAYear = 2016;
 		int birthYear;
 		int birthMonth;
