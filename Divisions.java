@@ -33,22 +33,31 @@ public class Divisions
 		// Using an if else decision structure, determine the division of the student
 		if (birthMonth <= 8) {
 			do {
-
+			
+				// Increment the age
 				age++;
+				
+				// Set the division to the age.
 				division = age;
-										
+				
+			// Do this while age does not equal the cut off age.					
 			} while (age != cutOffAge);
 			
 		} else {
 			do {
-		
+				
+				// Increment the age
 				age++;
+				
+				// Set the division to the age minus one.
 				division = age - 1;
-										
+				
+			// Do this while age does not equal the cut off age.						
 			} while (age != cutOffAge);
 			
 		}		
-			
+		
+		// Use a switch decision structure to determine the result.
 		switch (division) {
 		
 			case 10: result = "Wee Pee"; break;
@@ -59,9 +68,11 @@ public class Divisions
 			case 15: result = "Junior"; break;
 			case 16: result = "Senior"; break;
 			case 17: result = "Senior"; break;
+			default: result = "Senior"; break;
 			
 		}
 		
+		// Return the result.
 		return(result);
 	
 	}
@@ -70,26 +81,31 @@ public class Divisions
 	{
 		
 		// Instantiate four variables of the string type to store the line of text, the division of the student,
-		//		and the student's first and last name.		
+		//		and the student's first and last name.
 		String lineOfText;
 		String division;
 		String firstName;
 		String lastName;
 		
-		
-		
 		// Declare three variables of the integer type to store the birth year, birth month, and the position of the comma.
 		int birthYear;
 		int birthMonth;
-		int comma;		
+		int comma;
+		
+		// Declare a variable of the integer type to store a counter.
+		int counter = 0;
 		
 		File textFile = new File("Track_Division_Input_File.csv");
 		
 		FileReader in;
 		
 		BufferedReader readFile;
-
-		System.out.println("\n\n\t*** THE TRACK DIVISIONS PROGRAM ***\n");
+		
+		File outputFile = new File("Track_Divisions.txt");
+		
+		FileWriter out;
+		
+		BufferedWriter writeFile;
 		
 		try {
 			
@@ -97,9 +113,18 @@ public class Divisions
 			
 			readFile = new BufferedReader(in);
 			
+			out = new FileWriter(outputFile);
+			
+			writeFile = new BufferedWriter(out);
+			
+			writeFile.write("\n\t*** TRACK AND FIELD DIVISIONS FOR EHS STUDENTS IN THE 2016/2017 SCHOOL YEAR ***\n");
+			
 			while ((lineOfText = readFile.readLine()) != null) {
 				
-				// Parse the input string into the last name, first name, birth year, and birth month.
+				// Increment the counter
+				counter++;
+				
+				// Parse the input string into the last name, first name, birth year, and birth month variables.
 				// Determine the last name of the student.
 				comma = lineOfText.indexOf(",");		
 				lastName = lineOfText.substring(0,comma);		
@@ -111,7 +136,7 @@ public class Divisions
 				lineOfText = lineOfText.substring(comma + 1);		
 	
 				// Determine the birth year of the student.
-				comma = lineOfText.indexOf(",");		
+				comma = lineOfText.indexOf(",");
 				birthYear= Integer.parseInt(lineOfText.substring(0,comma));	
 				lineOfText = lineOfText.substring(comma + 1);		
 	
@@ -122,9 +147,13 @@ public class Divisions
 				// Determine track division.				
 				division = determineDivision(birthYear,birthMonth);
 				
-				System.out.println(firstName + " " + lastName + " is in the " + division + " division.\n");
-
+				writeFile.write("\n\t" + lastName + ", " + firstName + " is in the " + division + " division.\n");
+				
 			}
+			
+			writeFile.close();
+			
+			System.out.println("\n\tProcessing complete. " + counter + " results were written to the output file.\n");
 		
 		} catch (FileNotFoundException e) {
 		
@@ -139,8 +168,6 @@ public class Divisions
 			System.err.println("IOException: " + e.getMessage());
 			
 		}
-		
-		System.out.println();
 			
 	}
 		
