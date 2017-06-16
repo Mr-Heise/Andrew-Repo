@@ -66,8 +66,6 @@ public class Divisions
 			case 13: result = "Bantam"; break;
 			case 14: result = "Midget"; break;
 			case 15: result = "Junior"; break;
-			case 16: result = "Senior"; break;
-			case 17: result = "Senior"; break;
 			default: result = "Senior"; break;
 			
 		}
@@ -95,16 +93,14 @@ public class Divisions
 		// Declare a variable of the integer type to store a counter.
 		int counter = 0;
 		
+		// Create a new File and FileReader to acquire the input file.
 		File textFile = new File("Track_Division_Input_File.csv");
-		
 		FileReader in;
-		
 		BufferedReader readFile;
 		
+		// Create a new File and FileWriter to otuput the output file.
 		File outputFile = new File("Track_Divisions.txt");
-		
 		FileWriter out;
-		
 		BufferedWriter writeFile;
 		
 		try {
